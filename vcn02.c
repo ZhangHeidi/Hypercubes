@@ -3,7 +3,7 @@
 #include <time.h>
 #include <string.h>
 #define NMAX 20 //n
-#define VEX 1025 //顶点数2^n
+#define VEX 1025 //the number of vertices 2^n
 
 int g[VEX][VEX],gt[VEX][NMAX+1],gg[VEX][NMAX+1],b[VEX],v[VEX],vd[VEX],dd[VEX],vj[VEX],f[NMAX],d[VEX][VEX];
 int gg0[VEX][NMAX+1],vd0[VEX],eb[VEX],ee[VEX],eb0[VEX],ee0[VEX];
@@ -477,7 +477,7 @@ l2: l--; if(l>=1){ j=f[l]; v[j]=0; goto l1; }
 		vd0[i]=vd[i]; for(j=1;j<=vd[i];j++)gg0[i][j]=gg[i][j];
 	}
 
-	q0=0;//总连边数
+	q0=0;// the total number of edges
 	for(i=1;i<=n;i++)
 	{
 		for(j=1;j<=vd[i];j++)
