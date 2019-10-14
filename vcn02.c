@@ -3,13 +3,7 @@
 #include <time.h>
 #include <string.h>
 #define NMAX 20 //n
-#define VEX 1025 //¶¥µãÊý2^n
-//int g[VEX][VEX],gt[VEX][NMAX+1],gg[VEX][NMAX+1],b[VEX],v[VEX],vd[VEX],dd[VEX],vj[VEX],f[NMAX],d[VEX][VEX];
-//int gg0[VEX][NMAX+1],vd0[VEX];
-//int n,q0,q,n0,k0,fn,go,no;
-//FILE *pfile;
-//char ma[10];
-//int efn,vfn;
+#define VEX 1025 //é¡¶ç‚¹æ•°2^n
 
 int g[VEX][VEX],gt[VEX][NMAX+1],gg[VEX][NMAX+1],b[VEX],v[VEX],vd[VEX],dd[VEX],vj[VEX],f[NMAX],d[VEX][VEX];
 int gg0[VEX][NMAX+1],vd0[VEX],eb[VEX],ee[VEX],eb0[VEX],ee0[VEX];
@@ -21,8 +15,6 @@ int n,q0,q,n0,k0,fn,go,no;
 int efn,vfn;
 FILE *pfile;
 char ma[10];
-
-
 
 void TestCl(int v0,int vn)  // find the path 
 {
@@ -64,15 +56,15 @@ l1:		j++;
 		}
 		
 l4:		for(i=1;i<=vd[k];i++)if(gg[k][i]==vn)break;
-		if(i<=vd[k])//¹¹³ÉÁËÂ·
+		if(i<=vd[k])// find the path
 		{
 			v[l]=k;
-			if(fn)//????????????
+			if(fn)//
 			{
 				printf("begin:%d fault:",v0);
-				for(i=1;i<=vfn;i++)//´íµã
+				for(i=1;i<=vfn;i++)// faulty vertices
 					printf("%2d ",f[i]); 
-				for(i=1;i<=efn;i++)printf("%2d-%2d ",eb0[ff[i]],ee0[ff[i]]); //´í±ß
+				for(i=1;i<=efn;i++)printf("%2d-%2d ",eb0[ff[i]],ee0[ff[i]]); //faulty edges
 				printf("l:%2d  vn:%d\n",cl,vn);
 				for(i=1;i<=cl;i++)
 				{
@@ -82,7 +74,7 @@ l4:		for(i=1;i<=vd[k];i++)if(gg[k][i]==vn)break;
 				 printf("%2d ",vn);
 				printf("\n");getchar();
 			//	getchar();
-				for(i=1;i<=vfn;i++)//´í
+				for(i=1;i<=vfn;i++)// faulty vertices
 				{
 					for(j=1;j<=k0;j++)fprintf(pfile,"%d ",gt[f[i]][j]); 
 				}
@@ -92,7 +84,7 @@ l4:		for(i=1;i<=vd[k];i++)if(gg[k][i]==vn)break;
 					for(j=1;j<=k0;j++)fprintf(pfile,"%d ",gt[ee0[ff[i]]][j]); fprintf(pfile,"  ");
 				}
 				fprintf(pfile,"%2d   ",cl);
-				for(i=1;i<=cl;i++)//Â·¾¶ÉÏµÄµã
+				for(i=1;i<=cl;i++)// the vertices in path
 				{
 					for(j=1;j<=k0;j++)fprintf(pfile,"%2d ",gt[v[i]][j]); fprintf(pfile,"  ");
 				}
@@ -111,7 +103,7 @@ l5:		for(i=1;i<=fn;i++)//Path not found
 		{
 			for(j1=1;j1<=k0;j1++)printf("%d ",gt[f[i]][j1]); printf("    "); 
 		}
-		printf("Not found£º  Start:%d  End:%d",v0,vn);
+		printf("Not foundï¼š  Start:%d  End:%d",v0,vn);
 		printf("cl=%2d\n",cl);
 		fprintf(pfile,"  Start:%d  End:%d",v0,vn);
 		fprintf(pfile,"cl=%2d\n",cl);
@@ -125,7 +117,7 @@ void Test(int vvfn)
 int i,j,k,l,i1,ii,j1,j2,x,y,m;
 int jj,ll,jj1,jj2,mm1,lls,ww,mm2,eb3,ee3;
 
-	l=0; f[0]=0;   vfn=vvfn; efn=fn-vfn;//vfn: the faulty vertices£¬efn: the faulty edges
+	l=0; f[0]=0;   vfn=vvfn; efn=fn-vfn;//vfn: the faulty verticesï¼Œefn: the faulty edges
 
 l0: l++; j=f[l-1];//f[] store the faulty elements 
 
@@ -197,7 +189,7 @@ ll1: jj++;
 			gg[i][j1]=gg1[i][j1];
 	}
 	
-	for(i=1;i<=efn;i++)//ÐÞ¸Ä
+	for(i=1;i<=efn;i++)// modify
 	{
 		k=ff[i]; x=eb0[k]; y=ee0[k];
 		
@@ -485,13 +477,13 @@ l2: l--; if(l>=1){ j=f[l]; v[j]=0; goto l1; }
 		vd0[i]=vd[i]; for(j=1;j<=vd[i];j++)gg0[i][j]=gg[i][j];
 	}
 
-	q0=0;//×ÜÁ¬±ßÊý
+	q0=0;//æ€»è¿žè¾¹æ•°
 	for(i=1;i<=n;i++)
 	{
 		for(j=1;j<=vd[i];j++)
 		{
 			k=gg[i][j]; if(k<=i)continue;
-			q0++; eb0[q0]=i; ee0[q0]=k;//eb: the start vertex of edge q0£¬ee: the end vertex of edge q0;
+			q0++; eb0[q0]=i; ee0[q0]=k;//eb: the start vertex of edge q0ï¼Œee: the end vertex of edge q0;
 		}
 	}
 //   if(q<0) // output the graph
@@ -566,6 +558,6 @@ void main()
 			d[i][j]=-1;
 	
 	Get_Test_Graph(); 
-	Test(0);
+	Test(fn);
 	return;
 }
