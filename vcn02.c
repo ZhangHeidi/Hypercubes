@@ -78,7 +78,7 @@ l4:		for(i=1;i<=vd[k];i++) if(gg[k][i]==vn) break;
                                 fprintf(pfile,"Faults:");
 				for(i=1;i<=vfn;i++)// faulty vertices
 				{
-					for(j=1;j<=k0;j++) fprintf(pfile,"%d ",gt[f[i]][j]); printf("  ");
+					for(j=1;j<=k0;j++) fprintf(pfile,"%d ",gt[f[i]][j]); fprintf(pfile,"  ");
 				}
 				for(i=1;i<=efn;i++)
 				{
@@ -86,8 +86,9 @@ l4:		for(i=1;i<=vd[k];i++) if(gg[k][i]==vn) break;
 					for(j=1;j<=k0;j++) fprintf(pfile,"%d ",gt[ee0[ff[i]]][j]); fprintf(pfile,"  ");
 				}
 				fprintf(pfile,"Start:%d  End:%d",v0,vn);fprintf(pfile,"  ");
-				fprintf(pfile,"Length:%2d   \nPath:",cl);	
+				fprintf(pfile,"Length:%2d ",cl);	
 				fprintf(pfile,"%2d   ",cl);
+				fprintf(pfile,"\n Path:");
 				for(i=1;i<=cl;i++)// the vertices in path
 				{
 					fprintf(pfile,"%2d ",v[i]); printf("  ");
@@ -106,7 +107,7 @@ l2:		l--;
 
 l5:		for(i=1;i<=fn;i++)//Path not found
 		{
-			for(j1=1;j1<=k0;j1++)printf("%d ",gt[f[i]][j1]); printf("    "); 
+			for(j1=1;j1<=k0;j1++)printf("%d ",gt[f[i]][j1]); fprintf(pfile,"  "); 
 		}
 		printf("Not found：  Start:%d  End:%d",v0,vn);
 		printf("cl=%2d\n",cl);
