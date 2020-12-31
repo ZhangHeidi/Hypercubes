@@ -56,7 +56,7 @@ l1:		j++;
 			b[k]=1;	v[l]=k; vj[l]=j; goto l0;
 		}
 		
-l4:		for(i=1;i<=vd[k];i++)if(gg[k][i]==vn)break;
+l4:		for(i=1;i<=vd[k];i++) if(gg[k][i]==vn) break;
 		if(i<=vd[k])// find the path
 		{
 			v[l]=k;
@@ -65,29 +65,33 @@ l4:		for(i=1;i<=vd[k];i++)if(gg[k][i]==vn)break;
 				printf("begin:%d fault:",v0);
 				for(i=1;i<=vfn;i++)// faulty vertices
 					printf("%2d ",f[i]); 
-				for(i=1;i<=efn;i++)printf("%2d-%2d ",eb0[ff[i]],ee0[ff[i]]); //faulty edges
-				printf("l:%2d  vn:%d\n",cl,vn);
+				for(i=1;i<=efn;i++) printf("%2d-%2d ",eb0[ff[i]],ee0[ff[i]]); //faulty edges
+				printf("length:%2d  end:%d\n",cl,vn);
 				for(i=1;i<=cl;i++)
 				{
 					printf("%2d ",v[i]); printf("  "); 
 			//		for(j=1;j<=k0;j++)printf("%2d ",gt[v[i]][j]); printf("  ");
 				}
-				 printf("%2d ",vn);
-				printf("\n");getchar();
-			//	getchar();
+				printf("%2d ",vn);
+				printf("\n");
+			//	getchar();						
+                                fprintf(pfile,"Faults:");
 				for(i=1;i<=vfn;i++)// faulty vertices
 				{
-					for(j=1;j<=k0;j++)fprintf(pfile,"%d ",gt[f[i]][j]); 
+					for(j=1;j<=k0;j++) fprintf(pfile,"%d ",gt[f[i]][j]); printf("  ");
 				}
 				for(i=1;i<=efn;i++)
 				{
-					for(j=1;j<=k0;j++)fprintf(pfile,"%d ",gt[eb0[ff[i]]][j]); fprintf(pfile,"- ");
-					for(j=1;j<=k0;j++)fprintf(pfile,"%d ",gt[ee0[ff[i]]][j]); fprintf(pfile,"  ");
+					for(j=1;j<=k0;j++) fprintf(pfile,"%d ",gt[eb0[ff[i]]][j]); fprintf(pfile,"- ");
+					for(j=1;j<=k0;j++) fprintf(pfile,"%d ",gt[ee0[ff[i]]][j]); fprintf(pfile,"  ");
 				}
+				fprintf(pfile,"Start:%d  End:%d",v0,vn);fprintf(pfile,"  ");
+				fprintf(pfile,"Length:%2d   \nPath:",cl);	
 				fprintf(pfile,"%2d   ",cl);
 				for(i=1;i<=cl;i++)// the vertices in path
 				{
-					for(j=1;j<=k0;j++)fprintf(pfile,"%2d ",gt[v[i]][j]); fprintf(pfile,"  ");
+					fprintf(pfile,"%2d ",v[i]); printf("  ");
+				//	for(j=1;j<=k0;j++)fprintf(pfile,"%2d ",gt[v[i]][j]); fprintf(pfile,"  ");
 				}
 				fprintf(pfile,"\n");
 			}
@@ -112,7 +116,7 @@ l5:		for(i=1;i<=fn;i++)//Path not found
 	}
 }
 
-void Test(int vvfn)
+void Test(int vvfn) //vvfn: the faulty vertices, fn-vvfn: the faulty edges
 {
 //int i,j,k,l,i1,ii,j1,j2,m, eb0,ee0;
 int i,j,k,l,i1,ii,j1,j2,x,y,m;
@@ -553,7 +557,7 @@ l2: l--; if(l>=1){ j=f[l]; v[j]=0; goto l1; }
 			for(j=1;j<=vd[i];j++)fprintf(pfile,"%2d ",gg[i][j]);
 			fprintf(pfile,"\n");
 		}
-		getchar();
+		//getchar();
 	}
 }
 
@@ -613,6 +617,6 @@ void main()
 			d[i][j]=-1;
 	
 	Get_Test_Graph(); 
-	Test(fn);
+	Test(1);
 	return;
 }
