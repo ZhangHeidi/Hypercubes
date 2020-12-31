@@ -26,6 +26,7 @@ int i,j,k,ii,cl,l,cl0,cl1,v1,n1,j1;
 	if(go==4){ cl0=d[v0][vn]+5; cl1=1; n1=n-vfn-1; } // locally twisted cubes LTQn
 	if(go==5){ cl0=d[v0][vn]+5; cl1=1; n1=n-vfn-1; } // 0-mobius cubes 0MQn
 	if(go==6){ cl0=5; cl1=1; n1=n-fn-1; }  // 1-mobius cubes 1MQn
+	if(go==7){ cl0=n-fn-1;cl1=1; n1=n-fn-1;} // augmented cubes AQn
 	if(go==8){ cl0=3;cl1=1; n1=n-fn-1;} //twisted cubes TQn
 
 	       	 
@@ -270,9 +271,7 @@ ll1: jj++;
 			if(vd[j]==0)
 				continue;
 			if((i==eb3)&&(j==ee3))continue; //weak vertex pair
-			if((i==ee3)&&(j==eb3))continue;
-
-	    
+			if((i==ee3)&&(j==eb3))continue;	    
 			TestCl(i,j);
 		}
 	}
@@ -471,6 +470,57 @@ l2: l--; if(l>=1){ j=f[l]; v[j]=0; goto l1; }
 			}
 		}
 	}
+	else if(go==7)
+	{
+		for(i=1;i<=n;i++)vd[i]=0;
+		for(i=1;i<=k;i++)
+		{
+			for(j=1;j<=k;j++)
+			{
+				for(j1=1;j1<=k0;j1++)
+				{
+					if(gt[i][j1]==gt[j][j1])continue;
+					if(j1==1)
+					{
+						for(j2=j1+1;j2<=k0;j2++)
+						{
+							if(gt[i][j2]!=gt[j][j2])break;
+						}
+						if(j2<=k0)
+						{
+							for(j2=j1+1;j2<=k0;j2++)
+							{
+								if(gt[i][j2]==gt[j][j2])break;
+							}
+						}
+						if(j2<=k0)continue;
+
+					}
+					else
+					{
+						for(j2=1;j2<j1;j2++)
+						{
+							if(gt[i][j2]!=gt[j][j2])break;
+						}
+						if(j2<j1)continue;
+						for(j2=j1+1;j2<=k0;j2++)
+						{
+							if(gt[i][j2]!=gt[j][j2])break;
+						}
+						if(j2<=k0)
+						{
+							for(j2=j1+1;j2<=k0;j2++)
+							{
+								if(gt[i][j2]==gt[j][j2])break;
+							}
+						}
+						if(j2<=k0)continue;
+					}
+					gg[i][++vd[i]]=j; q0++; 
+				}				
+			}
+		}
+	}
 
 	for(i=1;i<=n;i++)
 	{
@@ -520,10 +570,10 @@ void main()
 //	n=32; n0=1; k0=5; fn=2*k0;     //fn<=10   fn=11  c10??                     fn<=10   fn=11  c10??
 
 //CQn
-	go=3;
+//	go=3;
 //	n=8; n0=1; k0=3; fn=k0-2;      //fn<=1    fn=2   c6??                      fn<=1    fn=2   c6??  
 //	n=16; n0=1; k0=4; fn=k0-2;     //fn<=2    fn=3   c13??                     fn<=2    fn=3   c13??
-	n=32; n0=1; k0=5; fn=k0-2;     //fn<=4    fn=5   c27??                     fn<=3    fn=4   c28??///////////////////////////// 
+//	n=32; n0=1; k0=5; fn=k0-2;     //fn<=4    fn=5   c27??                     fn<=3    fn=4   c28??///////////////////////////// 
 //	n=64; n0=1; k0=6; fn=0;
 //	n=512; n0=1; k0=9; fn=k0-2;
 //LTQn
@@ -541,7 +591,12 @@ void main()
 //	n=8; n0=1; k0=3; fn=k0-2;      //fn<=1    fn=2   c5??                      fn<=1    fn=2   c5?? 
 //	n=16; n0=1; k0=4; fn=k0-2;     //fn<=2    fn=3   c13??                     fn<=2    fn=3   c13??
 //	n=32; n0=1; k0=5; fn=k0-2;       //fn<=5    fn=6   c26??                     fn<=3    fn=4   c28??/////////////////////////////     
-
+//AQn
+	go=7;
+//	n=8; n0=1; k0=3;  fn=2*k0-4;     //fn<=2    fn=3   c4??                       fn<=2    fn=3   c4??  
+//	n=16; n0=1; k0=4; fn=2*k0-3;     //fn<=6    fn=7   c8??                       fn<=5    fn=6   c10??/////////////////////////////
+ 	n=32; n0=1; k0=5; fn=2*k0-3;      //fn<=12   fn=13  c18??/////                 fn<=7    fn=8   c24??/////////////////////////////
+//      n=64; n0=1; k0=6; fn=2*k0-3;	
 //TQn
 //	go=8;
 //	n=8; n0=1; k0=3;  fn=2*k0-3;     //fn<=2    fn=3   c4??                       fn<=2    fn=3   c4??  
