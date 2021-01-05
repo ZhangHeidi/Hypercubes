@@ -1,0 +1,146 @@
+Original Graph: 
+  i= 1  0  0  0  0    2  3  4  5  8  9 16 
+  i= 2  0  0  0  1    1  3  4  6  7 10 15 
+  i= 3  0  0  1  0    1  2  4  6  7 11 14 
+  i= 4  0  0  1  1    1  2  3  5  8 12 13 
+  i= 5  0  1  0  0    1  4  6  7  8 12 13 
+  i= 6  0  1  0  1    2  3  5  7  8 11 14 
+  i= 7  0  1  1  0    2  3  5  6  8 10 15 
+  i= 8  0  1  1  1    1  4  5  6  7  9 16 
+  i= 9  1  0  0  0    1  8 10 11 12 13 16 
+  i=10  1  0  0  1    2  7  9 11 12 14 15 
+  i=11  1  0  1  0    3  6  9 10 12 14 15 
+  i=12  1  0  1  1    4  5  9 10 11 13 16 
+  i=13  1  1  0  0    4  5  9 12 14 15 16 
+  i=14  1  1  0  1    3  6 10 11 13 15 16 
+  i=15  1  1  1  0    2  7 10 11 13 14 16 
+  i=16  1  1  1  1    1  8  9 12 13 14 15 
+Faults:1 2 3 5 8 Binary of Faults: 0 0 0 0   0 0 0 1   0 0 1 0   0 1 0 0   0 1 1 1   
+After Deleting Faults: 
+  i= 1 
+  i= 2 
+  i= 3 
+  i= 4 12 13 
+  i= 5 
+  i= 6  7 11 14 
+  i= 7  6 10 15 
+  i= 8 
+  i= 9 10 11 12 13 16 
+  i=10  7  9 11 12 14 15 
+  i=11  6  9 10 12 14 15 
+  i=12  4  9 10 11 13 16 
+  i=13  4  9 12 14 15 16 
+  i=14  6 10 11 13 15 16 
+  i=15  7 10 11 13 14 16 
+  i=16  9 12 13 14 15 
+
+Weak vertex-pair:eb0=12 ee0=13
+
+Start:4  End:6  Length:10   
+Path: 4   12    9   10    7   15   13   16   14   11    6 
+Start:4  End:7  Length:10   
+Path: 4   12    9   10   11    6   14   13   16   15    7 
+Start:4  End:9  Length:10   
+Path: 4   12   10    7    6   11   14   13   15   16    9 
+Start:4  End:10  Length:10   
+Path: 4   12    9   11    6    7   15   13   16   14   10 
+Start:4  End:11  Length:10   
+Path: 4   12    9   10    7    6   14   13   16   15   11 
+Start:4  End:12  Length:10   
+Path: 4   13    9   10    7    6   11   14   15   16   12 
+Start:4  End:13  Length:10   
+Path: 4   12    9   10    7    6   11   14   15   16   13 
+Start:4  End:14  Length:10   
+Path: 4   12    9   10    7    6   11   15   13   16   14 
+Start:4  End:15  Length:10   
+Path: 4   12    9   10    7    6   11   14   13   16   15 
+Start:4  End:16  Length:10   
+Path: 4   12    9   10    7    6   11   14   13   15   16 
+Start:6  End:7  Length:10   
+Path: 6   11    9   10   12    4   13   14   16   15    7 
+Start:6  End:9  Length:10   
+Path: 6    7   10   11   12    4   13   14   15   16    9 
+Start:6  End:10  Length:10   
+Path: 6    7   15   11    9   12    4   13   16   14   10 
+Start:6  End:11  Length:10   
+Path: 6    7   10    9   12    4   13   14   16   15   11 
+Start:6  End:12  Length:10   
+Path: 6    7   10    9   11   14   15   16   13    4   12 
+Start:6  End:13  Length:10   
+Path: 6    7   10    9   11   14   15   16   12    4   13 
+Start:6  End:14  Length:10   
+Path: 6    7   10    9   11   12    4   13   15   16   14 
+Start:6  End:15  Length:10   
+Path: 6    7   10    9   11   12    4   13   14   16   15 
+Start:6  End:16  Length:10   
+Path: 6    7   10    9   11   12    4   13   14   15   16 
+Start:7  End:9  Length:10   
+Path: 7    6   11   10   12    4   13   14   15   16    9 
+Start:7  End:10  Length:10   
+Path: 7    6   11    9   12    4   13   14   16   15   10 
+Start:7  End:11  Length:10   
+Path: 7    6   14   10    9   12    4   13   16   15   11 
+Start:7  End:12  Length:10   
+Path: 7    6   11    9   10   14   15   16   13    4   12 
+Start:7  End:13  Length:10   
+Path: 7    6   11    9   10   14   15   16   12    4   13 
+Start:7  End:14  Length:10   
+Path: 7    6   11    9   10   12    4   13   15   16   14 
+Start:7  End:15  Length:10   
+Path: 7    6   11    9   10   12    4   13   14   16   15 
+Start:7  End:16  Length:10   
+Path: 7    6   11    9   10   12    4   13   14   15   16 
+Start:9  End:10  Length:10   
+Path: 9   11    6    7   15   13    4   12   16   14   10 
+Start:9  End:11  Length:10   
+Path: 9   10    7    6   14   13    4   12   16   15   11 
+Start:9  End:12  Length:10   
+Path: 9   10    7    6   11   14   15   16   13    4   12 
+Start:9  End:13  Length:10   
+Path: 9   10    7    6   11   14   15   16   12    4   13 
+Start:9  End:14  Length:10   
+Path: 9   10    7    6   11   12    4   13   15   16   14 
+Start:9  End:15  Length:10   
+Path: 9   10    7    6   11   12    4   13   14   16   15 
+Start:9  End:16  Length:10   
+Path: 9   10    7    6   11   12    4   13   14   15   16 
+Start:10  End:11  Length:10   
+Path:10    7    6   14   13    4   12    9   16   15   11 
+Start:10  End:12  Length:10   
+Path:10    7    6   11    9   16   14   15   13    4   12 
+Start:10  End:13  Length:10   
+Path:10    7    6   11   14   15   16    9   12    4   13 
+Start:10  End:14  Length:10   
+Path:10    7    6   11    9   12    4   13   15   16   14 
+Start:10  End:15  Length:10   
+Path:10    7    6   11    9   12    4   13   14   16   15 
+Start:10  End:16  Length:10   
+Path:10    7    6   11    9   12    4   13   14   15   16 
+Start:11  End:12  Length:10   
+Path:11    6    7   10    9   16   14   15   13    4   12 
+Start:11  End:13  Length:10   
+Path:11    6    7   10   14   15   16    9   12    4   13 
+Start:11  End:14  Length:10   
+Path:11    6    7   10    9   12    4   13   15   16   14 
+Start:11  End:15  Length:10   
+Path:11    6    7   10    9   12    4   13   14   16   15 
+Start:11  End:16  Length:10   
+Path:11    6    7   10    9   12    4   13   14   15   16 
+Start:12  End:14  Length:10   
+Path:12    4   13    9   10    7    6   11   15   16   14 
+Start:12  End:15  Length:10   
+Path:12    4   13    9   10    7    6   11   14   16   15 
+Start:12  End:16  Length:10   
+Path:12    4   13    9   10    7    6   11   14   15   16 
+Start:13  End:14  Length:10   
+Path:13    4   12    9   10    7    6   11   15   16   14 
+Start:13  End:15  Length:10   
+Path:13    4   12    9   10    7    6   11   14   16   15 
+Start:13  End:16  Length:10   
+Path:13    4   12    9   10    7    6   11   14   15   16 
+Start:14  End:15  Length:10   
+Path:14    6    7   10    9   11   12    4   13   16   15 
+Start:14  End:16  Length:10   
+Path:14    6    7   10    9   11   12    4   13   15   16 
+Start:15  End:16  Length:10   
+Path:15    7    6   11    9   10   12    4   13   14   16 
