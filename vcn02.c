@@ -85,7 +85,7 @@ l4:		for(i=1;i<=vd[k];i++) if(gg[k][i]==vn) break;
 					for(j=1;j<=k0;j++) fprintf(pfile,"%d ",gt[eb0[ff[i]]][j]); fprintf(pfile,"- ");
 					for(j=1;j<=k0;j++) fprintf(pfile,"%d ",gt[ee0[ff[i]]][j]); fprintf(pfile,"  ");
 				}
-				fprintf(pfile,"Start:%d  End:%d",v0,vn);fprintf(pfile,"  ");
+				fprintf(pfile,"Start:%d  End:%d",v0,vn); fprintf(pfile,"  ");
 				fprintf(pfile,"Length:%2d ",cl);	
 				fprintf(pfile,"%2d   ",cl);
 				fprintf(pfile,"\n Path:");
@@ -94,6 +94,7 @@ l4:		for(i=1;i<=vd[k];i++) if(gg[k][i]==vn) break;
 					fprintf(pfile,"%2d ",v[i]); printf("  ");
 				//	for(j=1;j<=k0;j++)fprintf(pfile,"%2d ",gt[v[i]][j]); fprintf(pfile,"  ");
 				}
+				fprintf(pfile,"%2d ",vn);
 				fprintf(pfile,"\n");
 			}
 			continue;
